@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Automatic watermark removal tool using OpenCV.js">
+  <title>Watermark Removal Tool</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>✨ Watermark Removal Tool</h1>
+      <p>Automatically detect and remove star watermarks from your images</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Status Message -->
+      <div id="status-message" class="status-message status-info">
+        Initializing...
+      </div>
+
+      <!-- Drop Zone (Initial State) -->
+      <div id="drop-zone" class="drop-zone" style="display: none;">
+        <div class="drop-zone-icon">📁</div>
+        <h2>Drop your image here</h2>
+        <p>or click the button below to browse</p>
+        <button id="upload-button" class="upload-button">
+          Choose Image
+        </button>
+        <input type="file" id="file-input" accept="image/jpeg,image/jpg,image/png,image/webp">
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #95a5a6;">
+          Supported formats: JPG, PNG, WEBP | Max size: 10MB
+        </p>
+      </div>
+
+      <!-- Progress Container (Processing State) -->
+      <div id="progress-container" class="progress-container">
+        <div class="progress-bar-wrapper">
+          <div id="progress-bar" class="progress-bar" style="width: 0%;">
+            0%
+          </div>
+        </div>
+        <div id="progress-text" class="progress-text">
+          Initializing...
+        </div>
+      </div>
+
+      <!-- Preview Container (Results State) -->
+      <div id="preview-container" class="preview-container">
+        <!-- File Info -->
+        <div id="file-info" class="file-info">
+          <!-- File information will be displayed here -->
+        </div>
+
+        <!-- Before/After Comparison -->
+        <div class="comparison-wrapper">
+          <!-- Before (Original) -->
+          <div class="canvas-wrapper">
+            <h3>Before (Original)</h3>
+            <div class="canvas-container">
+              <canvas id="before-canvas"></canvas>
+            </div>
+          </div>
+
+          <!-- After (Processed) -->
+          <div class="canvas-wrapper">
+            <h3>After (Watermark Removed)</h3>
+            <div class="canvas-container">
+              <canvas id="after-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button id="download-button" class="btn btn-primary">
+            ⬇️ Download Processed Image
+          </button>
+          <button id="reset-button" class="btn btn-secondary">
+            🔄 Process Another
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        Powered by <a href="https://docs.opencv.org/4.x/d5/d10/tutorial_js_root.html" target="_blank" rel="noopener">OpenCV.js</a>
+        | Browser-based processing - Your images never leave your device
+      </p>
+    </footer>
+  </div>
+
+  <!-- Scripts - Load in order -->
+  <!-- 1. Configuration -->
+  <script src="src/config.js"></script>
+
+  <!-- 2. OpenCV Loader -->
+  <script src="lib/opencv-loader.js"></script>
+
+  <!-- 3. Utilities -->
+  <script src="src/utils.js"></script>
+
+  <!-- 4. Detection Logic -->
+  <script src="src/watermark-detector.js"></script>
+
+  <!-- 5. Removal Logic -->
+  <script src="src/watermark-remover.js"></script>
+
+  <!-- 6. Main Application -->
+  <script src="src/app.js"></script>
+</body>
+</html>

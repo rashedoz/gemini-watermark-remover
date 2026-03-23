@@ -1,0 +1,17 @@
+{
+  "name": "watermark-removal-tool",
+  "version": "1.0.0",
+  "description": "Browser-based watermark removal tool using OpenCV.js",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "watermark",
+    "opencv",
+    "image-processing",
+    "inpainting"
+  ],
+  "author": "",
+  "license": "MIT"
+}
